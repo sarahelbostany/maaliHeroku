@@ -40,12 +40,12 @@ const Overview = () => {
 
         <h3>Recent Expenses:</h3>
 
-        {expenseHistory.map((expense,i) =>
+        {expenseHistory && expenseHistory.map((expense,i) =>
 
         <div className = "history" >
 
-            <p>{expense.expense}</p><p>{ ' $' }
-            {expense.amount}
+            <p>{expense && expense.expense}</p><p>{ ' $' }
+            {expense && expense.amount}
             </p>
 
 
