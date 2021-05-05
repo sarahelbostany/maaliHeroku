@@ -16,7 +16,7 @@ function App() {
   const { userState, fetchUser } = useContext(AppContext)
   const [user, setUser] = userState
   useEffect(fetchUser, [])
-  
+
   return (
     <div className="App">
       <Navbar />

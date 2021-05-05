@@ -7,6 +7,7 @@ const Overview = () => {
 
 
     const [expenseHistory, setExpenseHistory] = useState([])
+    const [reload, setReload] = useState(false)
 
     const pastTransactions = async () => {
        const userId =  localStorage.getItem('userId')
@@ -19,24 +20,31 @@ const Overview = () => {
 
     }
 
+    const updateExpenses = (newExpense) => {
+        console.log(newExpense)
+        setExpenseHistory([...expenseHistory, newExpense])
+    }
+
     useEffect(() => {
         pastTransactions()
 
     }, [])
 
+
     return (
         <div>
+        <h4>Maali Tracker</h4>
 
-        <Expense/>
+        <Expense updateExpenses={updateExpenses}/>
         <br></br>
 
-        <h4>Recent Expenses:</h4>
+        <h3>Recent Expenses:</h3>
 
         {expenseHistory.map((expense,i) =>
 
         <div className = "history" >
 
-            <p>{expense.expense}{ ' $' }
+            <p>{expense.expense}</p><p>{ ' $' }
             {expense.amount}
             </p>
 

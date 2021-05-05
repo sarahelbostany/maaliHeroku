@@ -3,19 +3,6 @@ import { useState, useContext } from 'react'
 import { AppContext } from '../context/appContext'
 
 
-//budget + amount spent + amount left
-// budget needs to be tied to user
-// function to take a
-// functin to an array from amount spent and add
-/// amount left diff function
-// need to use .math
-
-
-
-
-
-
-
 //adding an expense
 const Expense = (props) => {
     const [newExpense, setNewExpense] = useState('')
@@ -31,6 +18,7 @@ const handleSubmit = (e) => {
     axios.post(`${process.env.REACT_APP_BACKEND_URL}/expenses/create`,{ userId:userId , expense: newExpense , amount:amount})
     .then((response) => {
         console.log(response)
+        props.updateExpenses(response.data.expense)
     })
 
     .catch((error) => {
@@ -41,17 +29,17 @@ const handleSubmit = (e) => {
 
     return(
         <div>
-        <div className = "budgetfield">
-            <span>Budget: {user.budget}</span>
-            <span>Amount Left {user.total}</span>
-            <span>Total Spent {user.budget - user.total}</span>
-
-
+        <div className = 'budget'>
+            Budget: ${user.budget}
+            </div>
+            <div className = 'calc-container'>
+            <span>Amount Left: ${user.total}</span>
+            <span>Total Spent: ${user.budget - user.total}</span>
         </div>
         <div className = "addExpenseForm" >
-            Add an Expense
+           <h3>Add an Expense</h3>
         <form onSubmit= {handleSubmit}>
-            <div>
+            <div className = 'expenseInput'>
                 <label htmlFor="newExpense"></label>
                 <input id="newExpense" value={newExpense} onChange={(e)=>{setNewExpense(e.target.value)}} placeholder="Enter New Expense"/>
                 <label htmlFor="amount"></label>

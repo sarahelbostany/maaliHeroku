@@ -19,18 +19,21 @@ const Login = (props)=>{
 
 
         return(
-            <div>
-                Login
+            <div className = "login">
+                <h3>Welcome Back!</h3>
+
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="new-email"></label>
-                        <input id="new-email" value={email} onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email"/>
+                        <input className = "loginInput" id="new-email" value={email} onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email"/>
                     </div>
                     <div>
                         <label htmlFor="new-password"></label>
-                        <input id="new-password" type="password" value={password} onChange={(e)=>{setPassword(e.target.value)}} placeholder="Password"/>
+                        <input className = "loginInput" id="new-password" type="password" value={password} onChange={(e)=>{setPassword(e.target.value)}} placeholder="Password"/>
                     </div>
-                    <button className= "btn">Login</button>
+                    <br></br>
+                    <input className = "loginBtn" type="submit" value="Login"/>
+
 
                 </form>
 
