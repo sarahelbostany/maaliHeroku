@@ -21,8 +21,8 @@ const Overview = () => {
     }
 
     const updateExpenses = (newExpense) => {
+        console.log('new expense' , newExpense)
         pastTransactions()
-        console.log('new expense', newExpense)
         // setExpenseHistory([...expenseHistory, newExpense])
     }
 
@@ -41,12 +41,12 @@ const Overview = () => {
 
         <h3>Recent Expenses:</h3>
 
-        {expenseHistory && expenseHistory.map((expense,i) =>
+        {expenseHistory.map((expense,i) =>
 
         <div className = "history" >
 
-            <p>{expense && expense.expense}</p><p>{ ' $' }
-            {expense && expense.amount}
+            <p>{expense.expense}</p><p>{ ' $' }
+            {expense.amount}
             </p>
 
 
