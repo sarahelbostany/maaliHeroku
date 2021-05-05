@@ -18,7 +18,7 @@ const handleSubmit = (e) => {
     axios.post(`${process.env.REACT_APP_BACKEND_URL}/expenses/create`,{ userId:userId , expense: newExpense , amount:amount})
     .then((response) => {
         console.log(response)
-        props.updateExpenses(response.data.expense)
+        props.updateExpenses(response.data.newExpense)
     })
 
     .catch((error) => {
