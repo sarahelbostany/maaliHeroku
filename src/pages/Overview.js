@@ -21,8 +21,9 @@ const Overview = () => {
     }
 
     const updateExpenses = (newExpense) => {
-        console.log(newExpense)
-        setExpenseHistory([...expenseHistory, newExpense])
+        pastTransactions()
+        console.log('new expense', newExpense)
+        // setExpenseHistory([...expenseHistory, newExpense])
     }
 
     useEffect(() => {
